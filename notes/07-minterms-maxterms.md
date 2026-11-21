@@ -1,6 +1,6 @@
-# Topic 7 — SOP, POS, minterms and maxterms
+# Topic 7: SOP, POS, minterms and maxterms
 
-Slide exercises: convert Σm(0,1,2,3,6) to ΠM
+Slide exercises: convert Σm(0,1,2,3,6) to ΠM · Past finals: 2023 Q1c
 
 Slides: Lecture 4, pages 14 to 21, and Lecture 5, pages 2 to 9
 
@@ -24,6 +24,26 @@ Topic 8 (K-maps) shrinks them.
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+**2023 Q1c (20% of Q1):** write the function as a sum of minterms and a product of maxterms, "using the shorthand format".
+
+Shorthand means **Σm(…)** and **ΠM(…)**. Give both.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 18: minterm: bit 0 → x', bit 1 → x.
+- Rule 19: maxterm: bit 0 → x, bit 1 → x'.
+- Rule 20: Σm(rows where F = 1) = ΠM(rows where F = 0). Same row numbers, split in two.
+
+**Memory hook:** "Minterms catch the 1s. Maxterms catch the 0s." 
 
 ---
 
@@ -82,7 +102,7 @@ It is **1 on exactly one row** of the truth table.
 
 ---
 
-### 📐 Rule 1: writing a minterm
+### 📐 Rule 18: writing a minterm
 
 **For the row's bits:**
 - bit **0** → **barred** letter (x')
@@ -157,7 +177,7 @@ It is **0 on exactly one row**.
 
 ---
 
-### 📐 Rule 2: writing a maxterm
+### 📐 Rule 19: writing a maxterm
 
 **The opposite of the minterm rule:**
 - bit **0** → **plain** letter (x)
@@ -228,7 +248,7 @@ Example: m₄' = (xy'z')' = x' + y + z = M₄ (by DeMorgan).
 
 ---
 
-### 📐 Rule 3: switching Σm ↔ ΠM
+### 📐 Rule 20: switching Σm ↔ ΠM
 
 **Swap the symbol (Σm ↔ ΠM).**
 
@@ -278,6 +298,41 @@ All three are correct. **Which is best?** The one with the fewest terms and lett
 Finding it by algebra is hard to do reliably.
 
 That's the problem **K-maps** solve (Topic 8).
+
+---
+
+## 9. Worked example: Final 2023 Q1c
+
+**Express F = X'Y' + Z as a sum of minterms and as a product of maxterms, in shorthand.**
+
+<br>
+
+Fill the truth table (Topic 6 §6 gives F):
+
+| X | Y | Z | F |
+|---|---|---|---|
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+<br>
+
+F = 1 in rows 0, 1, 3, 5, 7.
+
+$$F = \Sigma m(0, 1, 3, 5, 7)$$
+
+F = 0 in rows 2, 4, 6.
+
+$$F = \Pi M(2, 4, 6)$$
+
+<br>
+
+**Check:** the two lists together use every row 0 to 7 once (Rule 20).
 
 ---
 

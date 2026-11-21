@@ -1,6 +1,6 @@
-# Topic 6 — Gates, truth tables, Boolean algebra
+# Topic 6: Gates, truth tables, Boolean algebra
 
-Slide exercises: simplify x'y' + xyz + x'y
+Slide exercises: simplify x'y' + xyz + x'y · Past finals: 2023 Q1a
 
 Slides: Lecture 4, pages 2 to 13
 
@@ -28,6 +28,27 @@ A **shorter** expression = **fewer gates** = cheaper, less power, usually faster
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+**2023 Q1a (10% of Q1):** read a gate circuit and write F as a Boolean function.
+
+Q1 of the final is a whole combinational-logic question. It starts here.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 15: n inputs → 2ⁿ rows in the truth table.
+- Rule 16: DeMorgan: (x + y)' = x'y' and (xy)' = x' + y'.
+- Rule 17: x + xy = x. x + x'y = x + y. Consensus: xy + x'z + yz = xy + x'z.
+- A bubble on a gate output = NOT. NAND = (xy)'. NOR = (x + y)'.
+
+**Memory hook:** "DeMorgan: break the bar, change the sign." 
 
 ---
 
@@ -82,7 +103,7 @@ Right: the results collected into a truth table.
 
 ---
 
-### 📐 Rule 1: building a truth table
+### 📐 Rule 15: building a truth table
 
 **Step 1.** n inputs → **2ⁿ rows**.
 
@@ -159,7 +180,7 @@ The numbers match the slides. Use them to name each step.
 
 ---
 
-### 📐 Rule 2: DeMorgan's law
+### 📐 Rule 16: DeMorgan's law
 
 $$(x + y)' = x'\,y' \qquad\qquad (xy)' = x' + y'$$
 
@@ -173,7 +194,7 @@ You see a bar over a whole group. Also in Topic 9 for NAND and NOR.
 
 ---
 
-### 📐 Rule 3: three shortcuts (follow from the axioms, not on the slides)
+### 📐 Rule 17: three shortcuts (follow from the axioms, not on the slides)
 
 | Name | Rule | Why it's true |
 |---|---|---|
@@ -229,6 +250,63 @@ $$x'y' + xyz + x'y$$
 Top: the original circuit. Bottom: the simplified one.
 
 Same truth table, far fewer gates.
+
+---
+
+## 6. Reading a circuit back into an expression (Final 2023 Q1a)
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+**How to read this diagram:**
+- Three inputs X, Y, Z on the left. One output F on the right.
+- Top: X and Y each go through a NOT, then into an AND.
+- Middle: X and Y (before the NOTs) go into an OR.
+- That OR and Z' (Z through a NOT) go into a **NAND** (the bubble on its output).
+- The AND and the NAND go into the final OR.
+
+<br>
+
+**Method: work from left to right, one gate at a time.**
+
+Write the output of each gate on the diagram as you go.
+
+| Gate | Output |
+|---|---|
+| top AND | X'Y' |
+| OR | X + Y |
+| NAND | ((X + Y)Z')' |
+| final OR | **F = X'Y' + ((X + Y)Z')'** |
+
+That's the answer to Q1a.
+
+<br>
+
+**Then simplify (useful for Q1d):**
+
+DeMorgan on the NAND part (Rule 16):
+
+$$((X + Y)Z')' = (X + Y)' + Z = X'Y' + Z$$
+
+So F = X'Y' + X'Y' + Z.
+
+And x + x = x, so:
+
+$$F = X'Y' + Z$$
+
+<br>
+
+### 🧠 Check
+Why is the top AND gate in Fig. 1 wasted?
+
+<details><summary>Answer</summary>
+
+The NAND gate already gives X'Y' + Z on its own.
+
+The AND gate adds X'Y' again, and X'Y' + X'Y' = X'Y'.
+
+So F is just the NAND output.
+
+</details>
 
 ---
 

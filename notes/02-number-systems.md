@@ -1,6 +1,6 @@
-# Topic 2 — Number systems: binary, octal, hex, conversions
+# Topic 2: Number systems: binary, octal, hex, conversions
 
-Slide exercises: 123.15625 → binary, 123.15625 → hex
+Slide exercises: 123.15625 → binary, 123.15625 → hex · Past finals: none (mid-term topic, but in the learning outcomes)
 
 Slides: Lecture 2, pages 4 to 18 and 22 to 25
 
@@ -28,6 +28,29 @@ Every conversion in this topic is one of two moves:
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+But it's in the module's learning outcomes, and every other topic uses binary.
+
+Expect it, at most, as a short part. Be fast and sure.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 1: value = Σ digit × Bᵖᵒˢⁱᵗⁱᵒⁿ.
+- Rule 2: whole part: divide, remainders **upward**. Fraction: multiply, whole parts **downward**.
+- Rule 3: binary → octal in groups of 3, → hex in groups of 4, outward from the point.
+- Powers of 2 up to 2¹⁰ = 1024. Hex A to F = 10 to 15.
+
+**Memory hook:** "Divide up, multiply down." 
 
 ---
 

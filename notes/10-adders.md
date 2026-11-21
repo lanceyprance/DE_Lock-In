@@ -1,6 +1,6 @@
-# Topic 10 — Adders, carry lookahead, subtractors, multipliers
+# Topic 10: Adders, carry lookahead, subtractors, multipliers
 
-Slide exercises: none set, but every circuit here is a likely exam question
+Slide exercises: none set, but every circuit here is a likely exam question · Past finals: none
 
 Slides: Lecture 7/8, all
 
@@ -31,6 +31,28 @@ Then click to check.
 
 ---
 
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+But "arithmetic circuits" are in the syllabus, and the full adder is the classic short design question. The serial adder in Topic 17 reuses it.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 28: design: truth table → K-map → circuit.
+- Equation 29: half adder: S = X ⊕ Y, C = XY.
+- Equation 30: full adder: S = X ⊕ Y ⊕ Z, C = XY + (X ⊕ Y)Z.
+- Equation 31: P = A ⊕ B, G = AB, C₊₁ = G + PC.
+- Equation 32: A − B = A + B' + 1.
+
+**Memory hook:** "Generate makes a carry. Propagate passes one on." 
+
+---
+
 ## 1. Combinational logic and the design procedure
 
 A **combinational circuit** takes n inputs and gives m outputs using gates.
@@ -39,7 +61,7 @@ The output depends **only on the inputs right now**. No memory.
 
 ---
 
-### 📐 Rule 1: design procedure for any combinational circuit
+### 📐 Rule 28: design procedure for any combinational circuit
 
 ![Procedure](../img/10/s5.png)
 
@@ -115,7 +137,7 @@ The K-maps don't simplify anything.
 
 ---
 
-### 📐 Equation 1: half adder
+### 📐 Equation 29: half adder
 
 $$S = X \oplus Y \qquad\qquad C = XY$$
 
@@ -171,7 +193,7 @@ Bottom map (sum): a **checkerboard**. No two 1s touch, so nothing simplifies.
 
 ---
 
-### 📐 Equation 2: full adder
+### 📐 Equation 30: full adder
 
 $$S = X \oplus Y \oplus Z = \Sigma m(1, 2, 4, 7)$$
 
@@ -295,7 +317,7 @@ Work out **every carry at once**, straight from the inputs. No waiting.
 
 ---
 
-### 📐 Equation 3: propagate and generate
+### 📐 Equation 31: propagate and generate
 
 $$P_i = A_i \oplus B_i \qquad\qquad G_i = A_i B_i$$
 
@@ -392,7 +414,7 @@ Half subtractor: X − Y. Outputs **D** (difference) and **B** (borrow).
 
 ---
 
-### 📐 Equation 4: subtraction
+### 📐 Equation 32: subtraction
 
 **Half subtractor:**
 
@@ -486,7 +508,7 @@ Just like adding a 0 in decimal multiplies by 10.
 3. **n-bit ripple adder:** chain n full adders. Delay ≈ 2n gate delays.
 4. **Carry lookahead:** Pᵢ = Aᵢ ⊕ Bᵢ, Gᵢ = AᵢBᵢ, Cᵢ₊₁ = Gᵢ + PᵢCᵢ. Expand.
 5. **Subtract:** A + B' + 1.
-6. **Design from scratch:** use the 4-step procedure (Rule 1).
+6. **Design from scratch:** use the 4-step procedure (Rule 28).
 
 ---
 

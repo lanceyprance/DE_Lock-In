@@ -1,4 +1,4 @@
-# Topic 8 — End-of-topic test
+# Topic 8: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -9,8 +9,7 @@ Draw every map yourself on paper. AB down the side, Gray order 00, 01, 11, 10.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 5, slides 23 to 25)
 
 F = AB'C + AB + B + BC'
@@ -56,7 +55,7 @@ Cells 0 and 4 (column 0, wraps top to bottom): B = 0, C = 0 → **(B + C)**
 
 **F = (A + B)(B + C)**
 
-From: §5, §8, §9, Rules 1 to 3
+From: §5, §8, §9, Rules 21 to 23
 
 </details>
 
@@ -173,7 +172,49 @@ From: §5, §8, §9, §10
 
 ---
 
-## Part B: Midterm-style questions
+### F2023-1b (Final 2023 Q1b)
+
+For the Fig. 1 circuit:
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+Draw the Karnaugh map and the truth table of the logic circuit. [30%]
+
+<details><summary>Answer</summary>
+
+First get F (Topic 6 §6): F = X'Y' + ((X + Y)Z')' = X'Y' + Z.
+
+<br>
+
+**Truth table:**
+
+| X | Y | Z | F |
+|---|---|---|---|
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+<br>
+
+**K-map:**
+
+| X \ YZ | 00 | 01 | 11 | 10 |
+|---|---|---|---|---|
+| **0** | 1 | 1 | 1 | 0 |
+| **1** | 0 | 1 | 1 | 0 |
+
+From: §11, Topic 6 §6
+
+</details>
+
+---
+
+## Part B: Exam-style questions
 
 ---
 
@@ -189,11 +230,11 @@ From: §5, §8, §9, §10
 <details><summary>Answer</summary>
 
 1. **False.** 00, 01, **11, 10** (Gray order). (§3)
-2. **False.** Only 1, 2, 4, 8 or 16. (§5, Rule 1)
+2. **False.** Only 1, 2, 4, 8 or 16. (§5, Rule 21)
 3. **True.** The map wraps both ways. (§4)
-4. **True.** Overlapping is fine. (§5, Rule 1)
-5. **True.** 4 = 2², so 2 letters cancel, 2 remain. (§5, Rule 2)
-6. **False.** For 0s, 0 → plain. (§8, Rule 3)
+4. **True.** Overlapping is fine. (§5, Rule 21)
+5. **True.** 4 = 2², so 2 letters cancel, 2 remain. (§5, Rule 22)
+6. **False.** For 0s, 0 → plain. (§8, Rule 23)
 
 </details>
 
@@ -346,7 +387,7 @@ Cells 0 and 4 (wraps): B = 0, C = 0 → **B'C'**
 
 The second student used two groups of 2 instead of one group of 4, and a group of 1 instead of a group of 2. **Groups must be as big as possible.**
 
-From: §3, §5, Rule 1
+From: §3, §5, Rule 21
 
 </details>
 

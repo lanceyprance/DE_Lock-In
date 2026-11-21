@@ -1,4 +1,4 @@
-# Topic 9 — End-of-topic test
+# Topic 9: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 6, slide 14)
 
 Simplify F = A'B'C + AC' + ACD + ACD'. Implement it with two-level NAND gates.
@@ -37,7 +36,7 @@ Output: NAND(A', gate 1)
 
 **Check:** (A' · (B'C)')' = A + B'C ✓
 
-From: §7, §9, Rule 3
+From: §7, §9, Rule 26
 
 </details>
 
@@ -73,7 +72,7 @@ Output: NOR(A', gate 1)
 
 **Check:** (A' + (B + C' + D')')' = A(B + C' + D') ✓
 
-From: §8, §10, Rule 4
+From: §8, §10, Rule 27
 
 </details>
 
@@ -93,13 +92,47 @@ F = **C' + B**
 
 Using the don't care is much simpler.
 
-From: §1, §2, Rule 1
+From: §1, §2, Rule 24
 
 </details>
 
 ---
 
-## Part B: Midterm-style questions
+### F2023-1d (Final 2023 Q1d)
+
+For the Fig. 1 circuit:
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+Simplify the function using the Karnaugh map, and implement it with two-level NAND gate circuits. NOT gates can be used if needed. [40%]
+
+<details><summary>Answer</summary>
+
+**Simplify** (Topic 8 §11):
+
+Columns YZ = 01 and 11 (group of 4) → Z. Cells 000, 001 → X'Y'.
+
+**F = X'Y' + Z**
+
+<br>
+
+**Two-level NAND:**
+
+Gate 1: NAND(X', Y'). Output gate: NAND(gate 1, Z').
+
+NOT gates make X', Y', Z'.
+
+**F = ((X'Y')' · Z')'**
+
+Check with DeMorgan: = X'Y' + Z ✓
+
+From: §11, Rule 26
+
+</details>
+
+---
+
+## Part B: Exam-style questions
 
 ---
 
@@ -113,11 +146,11 @@ From: §1, §2, Rule 1
 
 <details><summary>Answer</summary>
 
-1. **False.** Use an x only if it helps. (§1, Rule 1)
+1. **False.** Use an x only if it helps. (§1, Rule 24)
 2. **True.** DeMorgan: (AB)' = A' + B'. (§5)
 3. **False.** NAND-NAND starts from the SOP. NOR-NOR uses the POS. (§7, §8)
-4. **True.** 2n = 8. (§4, Rule 2)
-5. **False.** OR is 2n + 2 = 6. (§4, Rule 2)
+4. **True.** 2n = 8. (§4, Rule 25)
+5. **False.** OR is 2n + 2 = 6. (§4, Rule 25)
 
 </details>
 
@@ -163,7 +196,7 @@ Cell 1 still needs covering. Use d0 and d2 as 1: row 00 (0, 1, 3, 2) → **A'B'*
 
 (Using d5 instead gives cells 1, 3, 5, 7 → A'D. So **CD + A'D** is equally minimal.)
 
-From: §1, Rule 1, and Topic 8
+From: §1, Rule 24, and Topic 8
 
 </details>
 
@@ -200,7 +233,7 @@ Output: NAND(C, gate 1)
 
 Check: (C · (AB')')' = C' + AB' ✓
 
-From: §7, Rule 3
+From: §7, Rule 26
 
 </details>
 
@@ -224,7 +257,7 @@ No single letters at the output, so nothing to complement.
 
 Check: ((A + B)' + (C + D)')' = (A + B)(C + D) ✓ (DeMorgan)
 
-From: §8, Rule 4
+From: §8, Rule 27
 
 </details>
 
@@ -249,7 +282,7 @@ F = AB + CD. Count the CMOS transistors for:
 
 The NAND version saves 6 transistors.
 
-From: §4, Rule 2, §7
+From: §4, Rule 25, §7
 
 </details>
 

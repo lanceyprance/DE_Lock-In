@@ -1,4 +1,4 @@
-# Topic 7 — End-of-topic test
+# Topic 7: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 4, slides 16, 19 and 21)
 
 A function f(x, y, z) is 1 on rows 0, 1, 2, 3 and 6.
@@ -33,7 +32,7 @@ f = ΠM(4, 5, 7) = **(x' + y + z)(x' + y + z')(x' + y' + z')**
 
 **3.** f' = **Σm(4, 5, 7) = ΠM(0, 1, 2, 3, 6)**
 
-From: §4, §6, §7, Rule 3
+From: §4, §6, §7, Rule 20
 
 </details>
 
@@ -51,13 +50,35 @@ f = M₁ M₄ M₆ M₇ = **ΠM(1, 4, 6, 7)**
 
 = **(x + y + z')(x' + y + z)(x' + y' + z)(x' + y' + z')**
 
-From: §5, §6, Rule 2
+From: §5, §6, Rule 19
 
 </details>
 
 ---
 
-## Part B: Midterm-style questions
+### F2023-1c (Final 2023 Q1c)
+
+For the Fig. 1 circuit, F = X'Y' + Z.
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+Express the logic function as a sum of minterms and as a product of maxterms, using the shorthand format. [20%]
+
+<details><summary>Answer</summary>
+
+F = 1 in rows 0, 1, 3, 5, 7. F = 0 in rows 2, 4, 6.
+
+**F = Σm(0, 1, 3, 5, 7)**
+
+**F = ΠM(2, 4, 6)**
+
+From: §9, Rule 20
+
+</details>
+
+---
+
+## Part B: Exam-style questions
 
 ---
 
@@ -72,7 +93,7 @@ From: §5, §6, Rule 2
 <details><summary>Answer</summary>
 
 1. **True.** (§3)
-2. **False.** In a maxterm, 0 gives a plain letter. (§5, Rule 2)
+2. **False.** In a maxterm, 0 gives a plain letter. (§5, Rule 19)
 3. **True.** (§4)
 4. **True.** By DeMorgan. (§7)
 5. **False.** That's SOP. POS is OR gates feeding one AND. (§1, §2)
@@ -98,7 +119,7 @@ For f(A, B, C, D), what is m₁₃?
 
 (C is M₁₃, the maxterm.)
 
-From: §3, Rule 1
+From: §3, Rule 18
 
 </details>
 
@@ -118,7 +139,7 @@ f = **Σm(1, 2, 4, 7)**
 
 (This is the full adder's sum, from Topic 10.)
 
-From: §7, Rule 3, and Rule 1
+From: §7, Rule 20, and Rule 18
 
 </details>
 
@@ -145,7 +166,7 @@ f(a, b, c) = ab + c'. Find Σm and ΠM.
 
 f = **Σm(0, 2, 4, 6, 7)** = **ΠM(1, 3, 5)**
 
-From: Topic 6 Rule 1, then §4, §6
+From: Topic 6 Rule 15, then §4, §6
 
 </details>
 
@@ -161,7 +182,7 @@ For f(A, B, C, D), write M₆.
 
 M₆ = **A + B' + C' + D**
 
-From: §5, Rule 2
+From: §5, Rule 19
 
 </details>
 
@@ -179,7 +200,7 @@ Each letter is written so that it's 1 only for that row's bit (plain for 1, barr
 
 An AND is 1 only if every part is 1, so all the inputs must match that one row.
 
-From: §3, Rule 1
+From: §3, Rule 18
 
 </details>
 

@@ -1,4 +1,4 @@
-# Topic 6 — End-of-topic test
+# Topic 6: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 4, slide 12)
 
 Simplify x'y' + xyz + x'y using Boolean algebra. Name each step.
@@ -51,13 +50,41 @@ f = 1 on rows 0, 1, 2, 3, 5, 7.
 
 (This simplifies to x' + z. Try proving it in M4.)
 
-From: §2, Rule 1
+From: §2, Rule 15
 
 </details>
 
 ---
 
-## Part B: Midterm-style questions
+### F2023-1a (Final 2023 Q1a)
+
+A digital logic circuit is shown in Fig. 1.
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+Write a Boolean logic function to describe the relationship between the inputs X, Y, Z and the output F. [10%]
+
+<details><summary>Answer</summary>
+
+Gate by gate, left to right:
+
+Top AND: X'Y'. OR: X + Y. NAND: ((X + Y)Z')'.
+
+**F = X'Y' + ((X + Y)Z')'**
+
+<br>
+
+**Simplified** (DeMorgan on the NAND part): ((X + Y)Z')' = X'Y' + Z.
+
+So **F = X'Y' + Z**.
+
+From: §6, Rule 16
+
+</details>
+
+---
+
+## Part B: Exam-style questions
 
 ---
 
@@ -73,7 +100,7 @@ From: §2, Rule 1
 
 1. **True.** OR, not normal adding. (§1)
 2. **False.** x + 1 = 1 (axiom 3). (§4)
-3. **False.** DeMorgan: (xy)' = x' + y'. (§4, Rule 2)
+3. **False.** DeMorgan: (xy)' = x' + y'. (§4, Rule 16)
 4. **True.** Axiom 15. (§4)
 5. **False.** 2³ = 8. (§2)
 
@@ -94,7 +121,7 @@ Which is equal to (a + b)'?
 
 **B.** DeMorgan: flip each letter, swap OR → AND.
 
-From: §4, Rule 2
+From: §4, Rule 16
 
 </details>
 
@@ -119,7 +146,7 @@ Simplify each one. Name the rules.
 
 **4.** **a + b** (shortcut x + x'y = x + y, or axiom 15: (a + a')(a + b) = 1 · (a + b))
 
-From: §4, Rule 3, §5
+From: §4, Rule 17, §5
 
 </details>
 
@@ -145,7 +172,7 @@ Show that (x + y')z + x' = x' + z.
 
 = **x' + z** (axiom 2)
 
-From: §4, Rule 3, method
+From: §4, Rule 17, method
 
 </details>
 
@@ -165,7 +192,7 @@ F' = (a'b + c)'
 
 **F' = (a + b')c'**
 
-From: §4, Rule 2
+From: §4, Rule 16
 
 </details>
 
@@ -183,7 +210,7 @@ So the bc term is redundant.
 
 **ab + a'c**
 
-From: §4, Rule 3
+From: §4, Rule 17
 
 </details>
 

@@ -1,6 +1,6 @@
-# Topic 12 — Multiplexers and demultiplexers
+# Topic 12: Multiplexers and demultiplexers
 
-Slide exercises: f = Σm(1, 2, 6, 7) on a 4-to-1 mux. F = Σm(1, 3, 4, 11, 12, 13, 14, 15) on an 8-to-1 mux.
+Slide exercises: f = Σm(1, 2, 6, 7) on a 4-to-1 mux. F = Σm(1, 3, 4, 11, 12, 13, 14, 15) on an 8-to-1 mux. · Past finals: none
 
 Slides: Lecture 10, all
 
@@ -29,6 +29,26 @@ Then click to check.
 
 ---
 
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+Muxes come back inside the universal shift register (Topic 17) and FPGA logic blocks (Topic 20).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Equation 35: 2-to-1 mux: Y = S'I₀ + SI₁.
+- Rule 36: n variables on a 2ⁿ-to-1 mux: put each truth-table output on its input.
+- Rule 37: n variables on a 2ⁿ⁻¹-to-1 mux: each pair of rows gives 0, 1, v or v'.
+
+**Memory hook:** "A mux is a switch you steer with numbers." 
+
+---
+
 ## 1. What a mux does
 
 ![2-to-1 mux](../img/12/s2.png)
@@ -51,7 +71,7 @@ It's also called a **data selector**.
 
 ---
 
-### 📐 Equation 1: 2-to-1 mux
+### 📐 Equation 35: 2-to-1 mux
 
 $$Y = S'\,I_0 + S\,I_1$$
 
@@ -134,7 +154,7 @@ How many 2-to-1 muxes do you need to build a 4-to-1 mux?
 
 ---
 
-### 📐 Rule 1: n variables on a 2ⁿ-to-1 mux
+### 📐 Rule 36: n variables on a 2ⁿ-to-1 mux
 
 **Step 1.** Wire the n variables to the **select lines**.
 
@@ -157,7 +177,7 @@ D₁ = D₂ = D₆ = D₇ = 1. All other Ds = 0.
 
 ---
 
-### 📐 Rule 2: n variables on a 2ⁿ⁻¹-to-1 mux
+### 📐 Rule 37: n variables on a 2ⁿ⁻¹-to-1 mux
 
 **Step 1.** Wire the **first n − 1 variables** to the select lines.
 

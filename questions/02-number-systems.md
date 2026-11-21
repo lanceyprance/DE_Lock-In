@@ -1,4 +1,4 @@
-# Topic 2 — End-of-topic test
+# Topic 2: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 2, slide 22)
 
 Convert 123.15625₁₀ to binary.
@@ -95,7 +94,7 @@ From: §5, §6, Rules 2 and 3
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 

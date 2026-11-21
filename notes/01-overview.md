@@ -1,6 +1,6 @@
-# Topic 1 — History, Moore's law, chip facts
+# Topic 1: History, Moore's law, chip facts
 
-Slide exercises: none
+Slide exercises: none · Past finals: none
 
 Slides: Lecture 1, all
 
@@ -26,6 +26,29 @@ Learn the numbers in the tables below. Skip the rest.
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+It was mid-term material.
+
+At most, a one-line "explain" part. Don't spend long here.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Integration scales: SSI 10 to 100 gates, MSI 100 to 1,000, LSI 1,000 to 10,000 (§3).
+- Intel 4004 (1971): about 2,300 transistors.
+- Moore's law: transistor count doubles every 18 to 24 months.
+- Two design goals: fewest transistors, shortest delay.
+
+**Memory hook:** "Small, Medium, Large, Very large: ×10 each step." 
 
 ---
 
@@ -205,6 +228,7 @@ Have the shortest propagation delay (speed).
 | Labs | 30% |
 | Home assignments | 30% |
 | Exams | 40%: mid-term **10%**, final **30%** |
+| Final exam | **2 hours**. 4 questions, answer all, equal marks. No formula sheet. Calculator allowed. |
 
 Miss an assessment with no approved Extenuating Circumstances form: **zero**.
 

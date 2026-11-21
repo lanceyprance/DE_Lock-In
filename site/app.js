@@ -179,14 +179,14 @@ function finish(q, topic) {
   const qid = m ? m[1] : q.heading;
   let title = m ? m[2] : '';
   let tut = '';
-  const tm = title.match(/\(((?:Tutorial|Final)[^)]*)\)/i);
+  const tm = title.match(/\(((?:Tutorial|Final|Lecture|Study guide)[^)]*)\)/i);
   if (tm) { tut = tm[1]; title = title.replace(tm[0], '').trim(); }
   const body = trimBlock(q.body), ans = trimBlock(q.ans);
   // every "From:" line in the answer, one per part, so a multi-part question points at all its notes
   const froms = [...ans.matchAll(/^\s*(?:From|→)\s*:\s*(.+)$/gmi)].map(x => x[1].trim());
   if (!froms.length) { const a = ans.match(/^\s*→\s*(.+)$/m); if (a) froms.push(a[1].trim()); }
   const out = {
-    key: `${topic.file}#${qid}`, qid, title: title || (q.part === 'tut' ? 'Tutorial question' : ''), tut, part: q.part,
+    key: `${topic.file}#${qid}`, qid, title: title || (q.part === 'tut' ? 'Slide or past-final question' : ''), tut, part: q.part,
     body, ans, from: froms.join('\n'), topic, type: 'open',
   };
   if (/true\s*or\s*false/i.test(title)) {
@@ -246,7 +246,8 @@ function answerNumbers(ans) {
   for (const m of ans.matchAll(/\*\*([^*]+)\*\*/g)) {
     const s = m[1].trim();
     if (/^(Part|Sample|Method|Step|Order|Q\d|[a-h]\.|\d+\.$)/i.test(s) || /:$/.test(s)) continue;
-    if (!/\d/.test(s)) continue;
+    // only plain numeric answers (DE answers are mostly expressions, which the box can't check)
+    if (!/^[−\-+]?[\d.,]+(\s*[×x]\s*10\S*)?(\s*\(?[a-zA-Z₀-₉]*\)?)?$/.test(s)) continue;
     numbersIn(s).forEach(v => vals.push(v));
   }
   return vals.filter(v => isFinite(v));
@@ -265,7 +266,7 @@ const MARK_LABEL = { got: '✓ Got it', part: '~ Partly', miss: '✗ Missed' };
 function typeLabel(q) {
   if (q.type === 'tf') return 'True / false';
   if (q.type === 'mcq') return 'Multiple choice';
-  return q.part === 'tut' ? 'Tutorial' : 'Exam-style';
+  return q.part === 'tut' ? 'Slides / past final' : 'Exam-style';
 }
 
 function renderCard(q, { showTopic = false, index } = {}) {
@@ -273,7 +274,7 @@ function renderCard(q, { showTopic = false, index } = {}) {
   const card = h(`<article class="card" id="q-${esc(q.qid)}-${q.topic.n}"></article>`);
   const tag = q.tut ? `<span class="tag tut">${esc(q.tut)}</span>` : `<span class="tag">${typeLabel(q)}</span>`;
   const topicTag = showTopic ? `<a class="tag from" href="#/topic/${String(q.topic.n).padStart(2, '0')}">Topic ${q.topic.n} · ${esc(q.topic.title.split(':')[0])}</a>` : '';
-  const head = h(`<div class="card-head">${tag}${topicTag}<h3>${index != null ? index + '. ' : ''}${q.tut ? '' : esc(q.qid) + (q.title ? ': ' : '')}${md(q.title || (q.tut ? 'Tutorial question' : ''), base, true)}</h3><span class="badge"></span></div>`);
+  const head = h(`<div class="card-head">${tag}${topicTag}<h3>${index != null ? index + '. ' : ''}${q.tut ? '' : esc(q.qid) + (q.title ? ': ' : '')}${md(q.title || (q.tut ? 'Slide or past-final question' : ''), base, true)}</h3><span class="badge"></span></div>`);
   card.append(head);
   const badge = head.querySelector('.badge');
   const paint = () => {
@@ -353,7 +354,7 @@ function renderCard(q, { showTopic = false, index } = {}) {
     const nums = answerNumbers(q.ans);
     if (nums.length) {
       const nc = h(`<div class="numcheck"><label for="nc-${q.key}">Got a number? Check it before you look:</label>
-        <input id="nc-${q.key}" inputmode="decimal" autocomplete="off" placeholder="e.g.  1.92   or   4.41e-6   or   4.41 x 10^-6">
+        <input id="nc-${q.key}" inputmode="decimal" autocomplete="off" placeholder="e.g.  1101   or   123.15625   or   -11">
         <button class="btn">Check</button><span class="numres" aria-live="polite"></span></div>`);
       const inp = nc.querySelector('input'), res = nc.querySelector('.numres');
       const go = () => {
@@ -362,7 +363,7 @@ function renderCard(q, { showTopic = false, index } = {}) {
         const close = (a, b) => Math.abs(a - b) <= 0.03 * Math.max(Math.abs(a), Math.abs(b)) || (a === 0 && b === 0);
         if (nums.some(n => close(v, n))) { res.className = 'numres ok'; res.textContent = '✓ That matches a final answer. Open the answer to check your method.'; }
         else if (nums.some(n => close(Math.abs(v), Math.abs(n)))) { res.className = 'numres meh'; res.textContent = '~ Right size, wrong sign. Check the direction.'; }
-        else if (nums.some(n => n && Math.abs(Math.log10(Math.abs(v / n))) > 0.9 && close(Math.abs(v) / Math.pow(10, Math.round(Math.log10(Math.abs(v / n)))), Math.abs(n)))) { res.className = 'numres meh'; res.textContent = '~ Right digits, wrong power of 10. Check your units (cm vs m).'; }
+        else if (nums.some(n => n && Math.abs(Math.log10(Math.abs(v / n))) > 0.9 && close(Math.abs(v) / Math.pow(10, Math.round(Math.log10(Math.abs(v / n)))), Math.abs(n)))) { res.className = 'numres meh'; res.textContent = '~ Right digits, wrong place value. Check where the point goes.'; }
         else { res.className = 'numres no'; res.textContent = '✗ Not one of the final answers. Try again, or reveal a step.'; }
       };
       nc.querySelector('button').onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') go(); };
@@ -405,14 +406,14 @@ function refsOf(text, topicN) {
   const out = [], seen = new Set();
   const add = r => { const k = r.topic + '|' + (r.sec || '') + '|' + (r.eq || '') + '|' + (r.kw || ''); if (!seen.has(k)) { seen.add(k); out.push(r); } };
   const s = String(text || '');
-  const re = /(?:Topic\s+(\d+)[,\s]*)?(?:§\s*(\d+)|Equation\s+(\d+)|(drawing checklist|the method|Method))/gi;
+  const re = /(?:Topic\s+(\d+)[,\s]*)?(?:§\s*(\d+)|(?:Equation|Rule)s?\s+(\d+)|(drawing checklist|the method|Method))/gi;
   let m, cur = topicN, last = 0;
   while ((m = re.exec(s))) {
     // "Topic 2 §3, §6": the topic carries over to the next refs, until "then" or a new From line goes back to this topic
     if (topicN > 0 && /\bthen\b|\n/i.test(s.slice(last, m.index))) cur = topicN;
     last = re.lastIndex;
     if (m[1]) cur = +m[1];
-    // sections carry the topic over; a bare "Equation N" stays in this topic (equation numbers are per topic)
+    // sections carry the topic over; a bare "Rule N" / "Equation N" stays in this topic unless a Topic is named
     const topic = m[1] ? +m[1] : (m[2] ? cur : (topicN > 0 ? topicN : cur));
     if (m[2]) add({ topic, sec: +m[2] });
     else if (m[3]) add({ topic, eq: +m[3] });
@@ -421,7 +422,7 @@ function refsOf(text, topicN) {
   if (!out.length) add({ topic: topicN });
   return out.slice(0, 6);
 }
-const refLabel = (r, here) => (r.topic !== here ? `Topic ${r.topic} ` : '') + (r.sec ? '§' + r.sec : r.eq ? 'Eq. ' + r.eq : r.kw ? r.kw.toLowerCase() : 'notes');
+const refLabel = (r, here) => (r.topic !== here ? `Topic ${r.topic} ` : '') + (r.sec ? '§' + r.sec : r.eq ? 'Rule ' + r.eq : r.kw ? r.kw.toLowerCase() : 'notes');
 
 // "📖 Read the notes" + "🔀 New numbers" under every question
 function studyRow(q, refs, card) {
@@ -550,7 +551,7 @@ async function openNotes(topicN, ref = {}, refs = null, here = topicN) {
     const sel = document.getElementById('notes-jump'); sel.innerHTML = '<option value="">Jump to…</option>';
     notesBody.querySelectorAll('h2, h3').forEach((hd, i) => {
       const txt = hd.textContent.trim(); hd.id = 'n-' + i;
-      const sec = txt.match(/^(\d+)\./), eq = txt.match(/Equation\s+(\d+)/i);
+      const sec = txt.match(/^(\d+)\./), eq = txt.match(/(?:Equation|Rule)\s+(\d+)/i);
       if (sec && hd.tagName === 'H2') hd.dataset.sec = sec[1];
       if (eq) hd.dataset.eq = eq[1];
       if (hd.tagName === 'H2') sel.append(h(`<option value="${hd.id}">${esc(txt)}</option>`));
@@ -560,7 +561,7 @@ async function openNotes(topicN, ref = {}, refs = null, here = topicN) {
   let target = null;
   if (ref.sec) target = notesBody.querySelector(`h2[data-sec="${ref.sec}"]`);
   else if (ref.eq) target = notesBody.querySelector(`[data-eq="${ref.eq}"]`);
-  else if (ref.kw) target = [...notesBody.querySelectorAll('h2')].find(x => x.textContent.trim().startsWith(ref.kw));
+  else if (ref.kw) target = [...notesBody.querySelectorAll('h2')].find(x => x.textContent.trim().startsWith(ref.kw)) || [...notesBody.querySelectorAll('h2')].find(x => x.textContent.includes(ref.kw));
   if (target) jump(target); else notesBody.scrollTop = 0;
 }
 let lastJump = null;
@@ -597,7 +598,8 @@ const tallyHTML = t => `<b class="g">✓ ${t.got}</b><b class="p">~ ${t.part}</b
 const barHTML = t => t.total ? `<div class="bar"><i class="g" style="width:${100 * t.got / t.total}%"></i><i class="p" style="width:${100 * t.part / t.total}%"></i><i class="m" style="width:${100 * t.miss / t.total}%"></i></div>` : '';
 const weightText = w => { const dots = (w.match(/●/g) || []).length; return dots ? `<span class="dots" title="${esc(w)}">${'●'.repeat(dots)}</span> ${dots >= 3 ? 'must know' : dots === 2 ? 'should know' : 'skim'}` : ''; };
 const sub3 = s => s ? s.charCodeAt(0) - 96 : 0;
-const tutOrder = q => { const t = q.tut || ''; const m = t.match(/Ch\s*(\d)\s*Q(\d+)\s*([a-z]*)/i); if (m) return (+m[1]) * 1000 + (+m[2]) * 10 + sub3(m[3]); const e = t.match(/Final\s*(\d{4})\s*Q(\d)\s*([a-z]*)/i); if (e) return 10000 + (2018 - +e[1]) * 100 + (+e[2]) * 10 + sub3(e[3]); return 99999; };
+// slide exercises in lecture order, then past finals (newest first)
+const tutOrder = q => { const t = q.tut || ''; const m = t.match(/Lecture\s*(\d+)(?:\/\d+)*[,\s]*(?:slides?\s*(\d+))?/i); if (m) return (+m[1]) * 1000 + (+(m[2] || 0)); const e = t.match(/Final\s*(\d{4})\s*Q(\d)\s*([a-z]*)/i); if (e) return 100000 + (2030 - +e[1]) * 100 + (+e[2]) * 10 + sub3(e[3]); return 999999; };
 
 // ---------------------------------------------------------------- views
 async function viewHome(seq) {
@@ -608,10 +610,10 @@ async function viewHome(seq) {
   const all = tallyOf(qs);
   app.innerHTML = '';
   app.append(h(`<section class="hero">
-    <h1>Solid State Devices practice</h1>
-    <p class="sub">EEEN20070 final · Wed 16 Dec · 3 questions (40 + 30 + 30) · formula sheet given</p>
+    <h1>Digital Electronics practice</h1>
+    <p class="sub">EEEN20050 final · Tue 8 Dec · 2 hours · 4 questions, answer all (25 each) · no formula sheet</p>
     <div class="modes">
-      <a class="mode primary" href="#/drill/tutorial"><span class="ic">🎯</span><b>Tutorial drill</b><small>All ${tutCount} tutorial and past-final questions, Ch1 → Ch3, then 2018 → 2014</small></a>
+      <a class="mode primary" href="#/drill/tutorial"><span class="ic">🎯</span><b>Exam drill</b><small>All ${tutCount} slide exercises and past-final questions, Lecture 2 → 25, then Final 2023</small></a>
       <a class="mode" href="#/repeat"><span class="ic">🔁</span><b>Repetition</b><small>${repHomeText()}</small></a>
       <a class="mode" href="#/drill/weak"><span class="ic">🩹</span><b>Weak spots</b><small>${weak ? weak + ' question' + (weak > 1 ? 's' : '') + ' you marked missed or partly' : 'Mark questions as you go, then redo the ones you missed'}</small></a>
       <a class="mode" href="#/drill/random"><span class="ic">🎲</span><b>Random 10</b><small>Mixed questions from every topic</small></a>
@@ -642,12 +644,12 @@ async function viewHome(seq) {
     }
     app.append(sec);
   }
-  const ms = h(`<section><h2>Mock finals</h2><p class="sub">Do these after the topics. Timed, closed book, formula sheet only.</p><div class="modes"></div></section>`);
+  const ms = h(`<section><h2>Mock finals</h2><p class="sub">Do these after the topics. Timed 2 hours, closed book, calculator only.</p><div class="modes"></div></section>`);
   mocks.filter(m => !m.wrap && !m.paper).forEach(m => ms.querySelector('.modes').append(mockCard(m, '📝')));
   app.append(ms);
   const ps = mocks.filter(m => m.paper);
   if (ps.length) {
-    const pp = h(`<section><h2>Past finals</h2><p class="sub">The real papers, 2018 → 2014, with the official answers. Same layout as your exam.</p><div class="modes"></div></section>`);
+    const pp = h(`<section><h2>Past finals</h2><p class="sub">The real 2023 paper with full worked answers (no official answers exist). Same layout as your exam.</p><div class="modes"></div></section>`);
     ps.forEach(m => pp.querySelector('.modes').append(mockCard(m, '🗂️')));
     app.append(pp);
   }
@@ -669,7 +671,7 @@ async function viewTopic(n, seq) {
   app.append(h(`<ol class="howto"><li><b>Try it</b> on paper first</li><li><b>Check</b> the answer step by step</li><li><b>📖 Read the notes</b> it uses (they open beside the question)</li><li><b>Mark yourself</b> ✓ ~ ✗ so weak spots come back</li></ol>`));
   if (p.intro) app.append(h(`<div class="intro md">${md(p.intro, 'questions/')}</div>`));
   const bar = h(`<div class="filters"><div class="seg">
-      <button data-f="all">All</button><button data-f="tut">Tutorial</button><button data-f="mid">Exam-style</button><button data-f="todo">Not done</button><button data-f="weak">Missed</button></div>
+      <button data-f="all">All</button><button data-f="tut">Slides + past final</button><button data-f="mid">Exam-style</button><button data-f="todo">Not done</button><button data-f="weak">Missed</button></div>
       <div class="tally"></div></div>`);
   app.append(bar);
   const list = h(`<div></div>`); app.append(list);
@@ -681,7 +683,7 @@ async function viewTopic(n, seq) {
     let lastPart = null;
     shown.forEach(q => {
       if (q.part !== lastPart && (filter === 'all' || filter === 'todo' || filter === 'weak')) {
-        list.append(h(`<h2>${q.part === 'tut' ? 'Part A · Tutorial questions' : 'Part B · Exam-style questions'}</h2>`)); lastPart = q.part;
+        list.append(h(`<h2>${q.part === 'tut' ? 'Part A · Slide exercises and past-final questions' : 'Part B · Exam-style questions'}</h2>`)); lastPart = q.part;
       }
       list.append(renderCard(q));
     });
@@ -700,7 +702,7 @@ async function viewDrill(kind, seq = routeSeq) {
   let list, title, sub;
   if (kind === 'tutorial') {
     list = qs.filter(q => q.part === 'tut').sort((a, b) => tutOrder(a) - tutOrder(b));
-    title = '🎯 Tutorial drill'; sub = 'Every tutorial and past-final question in order. Do each on paper first, then check.';
+    title = '🎯 Exam drill'; sub = 'Every slide exercise and past-final question in lecture order. Do each on paper first, then check.';
   } else if (kind === 'weak') {
     list = qs.filter(q => ['miss', 'part'].includes(markOf(q.key)));
     title = '🔁 Weak spots'; sub = 'Questions you marked missed or partly. Get them to ✓.';
@@ -813,7 +815,7 @@ async function viewMock(id, seq) {
 // ---------------------------------------------------------------- repetition: one question at a time, misses come back
 // Each question has a level 0-5. A miss drops it to 0 and it returns after 3 other cards.
 // A got-it moves it up a level and pushes its return further away (cards AND minutes).
-const REP_SEED = ['questions/08-contact.md#Q2', 'questions/08-contact.md#Q3', 'questions/08-contact.md#Q4', 'questions/09-metal-semiconductor.md#Q6'];
+const REP_SEED = []; // keys like 'questions/08-karnaugh-maps.md#S2' for questions in the 🔁 Relearn list
 const REP_GAPS = [[3, 0], [6, 10], [10, 180], [14, 720], [20, 1440], [30, 2880]]; // level → [cards, minutes]
 const REP_WHEN = ['in a few cards', 'in about 10 minutes', 'in about 3 hours', 'in about 12 hours', 'tomorrow', 'in about 2 days'];
 const repGet = () => store.get('rep:state', {});
@@ -868,7 +870,7 @@ async function viewRepeat(seq) {
   app.innerHTML = '';
   app.append(h(`<div><div class="crumb"><a href="#/">← Home</a></div><h1>🔁 Repetition</h1>
     <p class="sub">Do a question, then grade yourself. Missed ones come back in a few cards. Ones you get right come back later.</p></div>`));
-  const bar = h(`<div class="filters"><div class="seg"><button data-p="tut">Tutorial questions</button><button data-p="all">Everything</button></div><div class="tally rep-stats"></div></div>`);
+  const bar = h(`<div class="filters"><div class="seg"><button data-p="tut">Slides + past final</button><button data-p="all">Everything</button></div><div class="tally rep-stats"></div></div>`);
   app.append(bar);
   const lastBox = h(`<div class="rep-last" hidden></div>`);
   const statusBox = h(`<p class="rep-status"></p>`);

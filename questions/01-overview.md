@@ -1,15 +1,15 @@
-# Topic 1 — End-of-topic test
+# Topic 1: End-of-topic test
 
 Try each question first.
 Then click to check.
 
 Each answer says which notes section (§) it comes from.
 
-This topic has no slide exercises, so it's all midterm-style.
+This topic has no slide exercises and wasn't in the 2023 final, so it's all exam-style.
 
 ---
 
-## Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 

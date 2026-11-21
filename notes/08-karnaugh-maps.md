@@ -1,10 +1,10 @@
-# Topic 8 — Karnaugh maps (SOP and POS)
+# Topic 8: Karnaugh maps (SOP and POS)
 
-Slide exercises: Lecture 5, slides 23 to 27
+Slide exercises: Lecture 5, slides 23 to 27 · Past finals: 2023 Q1b, Q1d
 
 Slides: Lecture 5, pages 10 to 27
 
-⭐ **The most important topic for the mid-term.**
+⭐ **The heart of Q1 of the final.**
 
 ---
 
@@ -34,6 +34,29 @@ That gives the cheapest two-level circuit.
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+**2023 Q1b (30% of Q1):** draw the K-map and the truth table.
+
+**2023 Q1d (40% of Q1):** simplify with the K-map, then build it in NAND (Topic 9).
+
+K-maps also come back in **every** later design: flip-flop inputs (Topic 15), counters (Topic 16), hazards (Topic 22) and asynchronous circuits (Topic 21).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rows and columns in Gray order: 00, 01, **11, 10**.
+- Rule 21: groups of 1, 2, 4, 8, 16. As big as possible. Edges wrap.
+- Rule 22: a group of 2ᵏ cells drops k letters. Keep the letters that don't change.
+- Rule 23: POS: group the 0s, then write each group as a sum with the letters flipped.
+
+**Memory hook:** "Big groups, few groups." 
 
 ---
 
@@ -179,7 +202,7 @@ Without looking: which cell is m₁₁ in the 4-variable map?
 
 ---
 
-### 📐 Rule 1: how to group
+### 📐 Rule 21: how to group
 
 1. Groups hold **1, 2, 4, 8 or 16** cells. Never 3, 5, 6 …
 2. Groups must be **rectangles**. They can wrap around the edges.
@@ -189,7 +212,7 @@ Without looking: which cell is m₁₁ in the 4-variable map?
 
 ---
 
-### 📐 Rule 2: reading a group (SOP)
+### 📐 Rule 22: reading a group (SOP)
 
 For each letter, look across the whole group:
 
@@ -324,7 +347,7 @@ Group the 0s, the same way you grouped the 1s.
 
 ---
 
-### 📐 Rule 3: reading a group of 0s (POS)
+### 📐 Rule 23: reading a group of 0s (POS)
 
 This uses the **maxterm rule** (Topic 7):
 
@@ -423,6 +446,50 @@ Find **both** the minimum SOP and the minimum POS.
 **Pick the one with fewer terms, then fewer letters.**
 
 Sometimes POS wins (like §8). Sometimes SOP wins.
+
+---
+
+## 11. Worked example: Final 2023 Q1b and the simplify step of Q1d
+
+**Draw the K-map and the truth table for F = X'Y' + Z. Then simplify.**
+
+<br>
+
+**Truth table** (2³ = 8 rows, Rule 15):
+
+| X | Y | Z | F |
+|---|---|---|---|
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+<br>
+
+**K-map** (X down the side, YZ across, Gray order):
+
+| X \ YZ | 00 | 01 | 11 | 10 |
+|---|---|---|---|---|
+| **0** | 1 | 1 | 1 | 0 |
+| **1** | 0 | 1 | 1 | 0 |
+
+<br>
+
+**Groups:**
+
+Columns 01 and 11, both rows (group of 4): only Z stays the same → **Z**
+
+Row 0, columns 00 and 01 (group of 2): X = 0, Y = 0 → **X'Y'**
+
+$$F = X'Y' + Z$$
+
+<br>
+
+**Exam tip:** Q1b was worth 30% of Q1. Draw **both** the table and the map, neatly, with the Gray order labelled.
 
 ---
 

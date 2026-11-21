@@ -1,4 +1,4 @@
-# Topic 11 — End-of-topic test
+# Topic 11: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide examples
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 9, slide 6)
 
 Implement a full adder with a 3-to-8 active-high decoder and OR gates.
@@ -23,7 +22,7 @@ Feed X, Y, Z into the decoder (X = MSB).
 
 **C = OR of outputs 3, 5, 6, 7**
 
-From: §3, §4, Rule 1
+From: §3, §4, Rule 33
 
 </details>
 
@@ -43,7 +42,7 @@ C = ΠM(0, 1, 2, 4). S = ΠM(0, 3, 5, 6).
 
 **S = AND of outputs 0, 3, 5, 6**
 
-From: §7, Rule 2
+From: §7, Rule 34
 
 </details>
 
@@ -69,7 +68,7 @@ From: §6
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -112,7 +111,7 @@ f = ΠM(0, 3, 4, 6, 7) (the missing numbers).
 
 (A is the answer for an active-high decoder.)
 
-From: §7, Rule 2, and Topic 7 Rule 3
+From: §7, Rule 34, and Topic 7 Rule 20
 
 </details>
 
@@ -200,7 +199,7 @@ f = Σm(2, 3, 5, 7)
 
 **OR together decoder outputs 2, 3, 5, 7.**
 
-From: §3, Rule 1, and Topic 7
+From: §3, Rule 33, and Topic 7
 
 </details>
 

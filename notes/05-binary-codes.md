@@ -1,6 +1,6 @@
-# Topic 5 — Binary codes: BCD, Gray, one-hot
+# Topic 5: Binary codes: BCD, Gray, one-hot
 
-Slide exercises: none (the slides give examples only)
+Slide exercises: none (the slides give examples only) · Past finals: none
 
 Slides: Lecture 3, pages 20 to 24
 
@@ -23,13 +23,34 @@ Then click to check.
 
 ---
 
+## 🎯 In the final
+
+Not asked directly in the 2023 final.
+
+But codes come back in the second half: BCD counters (Topic 16) and one-hot timing signals (Topic 18).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 13: n bits code 2ⁿ things.
+- BCD: 4 bits per decimal digit. 1010 to 1111 are never used.
+- Gray: neighbours differ in one bit. That's why K-maps use 00, 01, 11, 10.
+- One-hot: one flip-flop per state, exactly one is 1.
+
+**Memory hook:** "Gray = one step at a time." 
+
+---
+
 ## 1. What a code is
 
 ![Binary codes](../img/05/s20.png)
 
 ---
 
-### 📐 Rule 1: how many things can n bits code?
+### 📐 Rule 13: how many things can n bits code?
 
 $$\text{patterns} = 2^n$$
 
@@ -125,7 +146,7 @@ In Gray code, **neighbouring values differ in exactly one bit.**
 
 ---
 
-### 📐 Rule 2: binary → Gray (quick way, not on the slides)
+### 📐 Rule 14: binary → Gray (quick way, not on the slides)
 
 **Step 1.** Keep the MSB.
 

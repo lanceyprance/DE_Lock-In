@@ -1,4 +1,4 @@
-# Topic 3 — End-of-topic test
+# Topic 3: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 2, slide 26)
 
 Add, subtract and multiply in binary: 111 and 101.
@@ -57,7 +56,7 @@ Divide in binary: 10010001 ÷ 1011.
 
 Decimal check: 145 ÷ 11 = 13 r 2 ✓
 
-From: §4, Rule 4
+From: §4, Rule 7
 
 </details>
 
@@ -81,7 +80,7 @@ From: §1, §2
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -126,7 +125,7 @@ So add 1101 shifted 1 and 1101 shifted 2:
 
 Check: 13 × 6 = 78 = 64 + 8 + 4 + 2 ✓
 
-From: §3, Rule 3
+From: §3, Rule 6
 
 </details>
 
@@ -166,7 +165,7 @@ Answer: **10100 remainder 0**
 
 Check: 100 ÷ 5 = 20 = 10100 ✓
 
-From: §4, Rule 4
+From: §4, Rule 7
 
 </details>
 

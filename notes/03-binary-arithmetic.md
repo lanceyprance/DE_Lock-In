@@ -1,6 +1,6 @@
-# Topic 3 — Binary arithmetic: + − × ÷
+# Topic 3: Binary arithmetic: + − × ÷
 
-Slide exercises: add, subtract and multiply 111 and 101. Divide 10010001 by 1011.
+Slide exercises: add, subtract and multiply 111 and 101. Divide 10010001 by 1011. · Past finals: none
 
 Slides: Lecture 2, pages 19 to 21 and 26 to 29
 
@@ -27,6 +27,28 @@ Then click to check.
 
 ---
 
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+You need it inside other topics: adders (Topic 10) and counters (Topic 16).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 4: 1 + 1 = 10. 1 + 1 + 1 = 11.
+- Rule 5: 0 − 1 = 1, borrow 1.
+- Rule 6: multiply = shift and add.
+- Rule 7: long division, same as decimal.
+- Shift left = × 2. Shift right = ÷ 2.
+
+**Memory hook:** "Two ones make a carry." 
+
+---
+
 ## 1. Addition
 
 ![Add and subtract](../img/03/s19.png)
@@ -39,7 +61,7 @@ Bottom: the same numbers subtracted back. 1000110 − 101011 = 011011.
 
 ---
 
-### 📐 Rule 1: adding bits
+### 📐 Rule 4: adding bits
 
 | Sum | Write | Carry |
 |---|---|---|
@@ -98,7 +120,7 @@ Answer: **10001** (11 + 6 = 17 ✓)
 
 ---
 
-### 📐 Rule 2: subtracting bits
+### 📐 Rule 5: subtracting bits
 
 | Difference | Write | Borrow |
 |---|---|---|
@@ -157,7 +179,7 @@ Then add the rows.
 
 ---
 
-### 📐 Rule 3: shift and add
+### 📐 Rule 6: shift and add
 
 **Step 1.** For each **1** in the multiplier, write the multiplicand, shifted left to that bit's position.
 
@@ -225,7 +247,7 @@ Same long division as decimal. The answer, 111, is on top.
 
 ---
 
-### 📐 Rule 4: long division
+### 📐 Rule 7: long division
 
 **Step 1.** Bring down bits until the divisor fits (part ≥ divisor).
 

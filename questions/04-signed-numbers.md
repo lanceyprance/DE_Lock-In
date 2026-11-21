@@ -1,4 +1,4 @@
-# Topic 4 — End-of-topic test
+# Topic 4: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 3, slide 8)
 
 What is the 2's complement negative representation of 01010110?
@@ -21,7 +20,7 @@ Flip everything to the left: 010101 → 101010.
 
 Answer: **10101010**
 
-From: §3, Rule 1
+From: §3, Rule 8
 
 </details>
 
@@ -42,7 +41,7 @@ The sign bit is 1, so it's negative either way.
 
 **(b) 2's complement:** flip and add 1 → 001011 = 11. Answer: **−11**
 
-From: §5, Rule 2
+From: §5, Rule 9
 
 </details>
 
@@ -64,7 +63,7 @@ Work out −2 + 7 in 4 bits, using 1's complement and then 2's complement.
 
 1110 + 0111 = 1 0101. Drop the carry: **0101** = +5 ✓
 
-From: §7, Rule 4
+From: §7, Rule 11
 
 </details>
 
@@ -82,13 +81,13 @@ In 4-bit 2's complement, what happens if you compute 4 + 5, or (−4) + (−5)?
 
 In both, two numbers of the same sign gave the other sign.
 
-From: §8, Rule 5
+From: §8, Rule 12
 
 </details>
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -129,7 +128,7 @@ What is the range of an 8-bit 2's complement number?
 
 (A is unsigned. B is signed magnitude or 1's complement.)
 
-From: §6, Rule 3
+From: §6, Rule 10
 
 </details>
 
@@ -175,7 +174,7 @@ In 4-bit 2's complement, work out each sum. Say whether it overflows.
 
 **3.** 6 − 2 = 6 + (−2) = 0110 + 1110 = 1 0100. Drop the carry: 0100 = **+4**. **No overflow.**
 
-From: §7, §8, Rules 4 and 5
+From: §7, §8, Rules 11 and 12
 
 </details>
 
@@ -195,7 +194,7 @@ End-around carry: 1001 + 1 = **1010**.
 
 Check: flip 1010 → 0101 = 5. So it's **−5** ✓
 
-From: §7, Rule 4
+From: §7, Rule 11
 
 </details>
 

@@ -1,6 +1,6 @@
-# Topic 11 — Decoders and encoders
+# Topic 11: Decoders and encoders
 
-Slide exercises: full adder on a 3-to-8 decoder (active-high and active-low)
+Slide exercises: full adder on a 3-to-8 decoder (active-high and active-low) · Past finals: none
 
 Slides: Lecture 9, all
 
@@ -26,6 +26,27 @@ So **any function = a decoder + one OR gate.**
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+Decoders come back inside memory (Topic 19), ROMs (Topic 20) and ring counters (Topic 18).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- An n-to-2ⁿ decoder makes every minterm.
+- Rule 33: active-high outputs: OR the minterms in Σm.
+- Rule 34: active-low outputs: AND the maxterms in ΠM (or NAND the Σm ones).
+- Encoder: the reverse. Priority encoder: highest input wins.
+
+**Memory hook:** "A decoder is a minterm machine." 
 
 ---
 
@@ -100,7 +121,7 @@ Look at the output equations: each one is a **minterm**.
 
 ---
 
-### 📐 Rule 1: any function from an active-high decoder
+### 📐 Rule 33: any function from an active-high decoder
 
 **Step 1.** Write the function as **Σm**.
 
@@ -220,7 +241,7 @@ Q₀ = (S₁'S₀')' = S₁ + S₀ = M₀
 
 ---
 
-### 📐 Rule 2: any function from an active-low decoder
+### 📐 Rule 34: any function from an active-low decoder
 
 **Step 1.** Write the function as **ΠM** (the rows where f = 0).
 

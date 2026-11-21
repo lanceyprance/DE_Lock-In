@@ -1,6 +1,6 @@
-# Topic 4 — Negative numbers, ranges, overflow
+# Topic 4: Negative numbers, ranges, overflow
 
-Slide exercises: 2's complement of 01010110. Read 110101 as 1's and 2's complement.
+Slide exercises: 2's complement of 01010110. Read 110101 as 1's and 2's complement. · Past finals: none (mid-term topic, but in the learning outcomes)
 
 Slides: Lecture 3, pages 4 to 19
 
@@ -28,6 +28,28 @@ They only differ in how they make a **negative** number.
 When you see 🧠, stop.
 Answer it on paper first.
 Then click to check.
+
+---
+
+## 🎯 In the final
+
+Not asked in the 2023 final.
+
+But signed numbers are named in the learning outcomes. A short part is possible.
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 8: 2's complement shortcut: copy from the right up to the first 1, flip the rest.
+- Rule 9: to read a negative number, negate it the same way, then put a minus in front.
+- Rule 10: n-bit 2's complement range: −2ⁿ⁻¹ to +(2ⁿ⁻¹ − 1).
+- Rule 11: 1's complement add: end-around carry. 2's complement add: drop the carry.
+- Rule 12: overflow = two same-sign numbers give the other sign.
+
+**Memory hook:** "2's complement has one zero, so it gets one extra negative." 
 
 ---
 
@@ -103,7 +125,7 @@ To make it negative: **flip every bit, then add 1.**
 
 ---
 
-### 📐 Rule 1: the 2's complement shortcut
+### 📐 Rule 8: the 2's complement shortcut
 
 **Start from the right.**
 
@@ -179,7 +201,7 @@ The three right columns show how each system writes it in 4 bits.
 
 ---
 
-### 📐 Rule 2: negative binary → decimal
+### 📐 Rule 9: negative binary → decimal
 
 **Step 1.** Is the sign bit 1? Then it's negative.
 
@@ -228,7 +250,7 @@ Answer: **−2**.
 
 ---
 
-### 📐 Rule 3: n-bit ranges
+### 📐 Rule 10: n-bit ranges
 
 | System | Smallest | Largest | 4-bit |
 |---|---|---|---|
@@ -272,7 +294,7 @@ That's why computers use complements.
 
 ---
 
-### 📐 Rule 4: adding signed numbers
+### 📐 Rule 11: adding signed numbers
 
 **1's complement:**
 Add normally. If a carry comes out of the left end, **remove it and add 1** to the result. This is called the **end-around carry**.
@@ -338,7 +360,7 @@ The real answers (+9 and −9) don't fit in 4 bits.
 
 ---
 
-### 📐 Rule 5: spotting overflow (2's complement)
+### 📐 Rule 12: spotting overflow (2's complement)
 
 **Overflow happens only when:**
 - two **positive** numbers give a **negative** answer, or

@@ -1,4 +1,4 @@
-# Topic 5 — End-of-topic test
+# Topic 5: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide examples
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 3, slide 21)
 
 Write 185₁₀ in BCD.
@@ -45,7 +44,7 @@ From: §3
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -103,7 +102,7 @@ Write the decimal number 9 in:
 
 1. **1001**
 2. **1001** (same here, because 9 is a single digit)
-3. **1101** (from the table, or Rule 2: 1, 1⊕0 = 1, 0⊕0 = 0, 0⊕1 = 1)
+3. **1101** (from the table, or Rule 14: 1, 1⊕0 = 1, 0⊕0 = 0, 0⊕1 = 1)
 4. bit position 8 → **0000000100000000**
 
 From: §2, §3, §4
@@ -138,7 +137,7 @@ You need to code the 26 letters of the alphabet. What is the smallest number of 
 
 **5 bits.**
 
-From: §1, Rule 1
+From: §1, Rule 13
 
 </details>
 

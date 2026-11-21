@@ -1,4 +1,4 @@
-# Topic 12 — End-of-topic test
+# Topic 12: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide exercises
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 10, slide 7)
 
 Implement f(x, y, z) = Σm(1, 2, 6, 7) with a 4-to-1 multiplexer. Use S₁ = x, S₀ = y.
@@ -22,7 +21,7 @@ Implement f(x, y, z) = Σm(1, 2, 6, 7) with a 4-to-1 multiplexer. Use S₁ = x, 
 | 10 | 0, 0 | D₂ = **0** |
 | 11 | 1, 1 | D₃ = **1** |
 
-From: §6, Rule 2
+From: §6, Rule 37
 
 </details>
 
@@ -45,7 +44,7 @@ Implement F(A, B, C, D) = Σm(1, 3, 4, 11, 12, 13, 14, 15) with an 8-to-1 multip
 | 110 | 1, 1 | D₆ = **1** |
 | 111 | 1, 1 | D₇ = **1** |
 
-From: §7, Rule 2
+From: §7, Rule 37
 
 </details>
 
@@ -64,13 +63,13 @@ Implement f(x, y, z) = Σm(0, 2, 5, 7) with a 4-to-1 mux (S₁ = x, S₀ = y).
 | 10 | 0, 1 | D₂ = **z** |
 | 11 | 0, 1 | D₃ = **z** |
 
-From: §6, Rule 2
+From: §6, Rule 37
 
 </details>
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -86,7 +85,7 @@ From: §6, Rule 2
 
 1. **True.** (§1)
 2. **True.** The inverter is only needed if some input is v'. (§6)
-3. **True.** (§6, Rule 2)
+3. **True.** (§6, Rule 37)
 4. **True.** (§8)
 5. **False.** Both ends must use the same selects. (§9)
 
@@ -109,7 +108,7 @@ For a 2-to-1 mux, Y = ?
 
 (A is what slide 3's typo would give.)
 
-From: §2, Equation 1
+From: §2, Equation 35
 
 </details>
 
@@ -139,7 +138,7 @@ Implement the full adder's sum S = Σm(1, 2, 4, 7) and carry C = Σm(3, 5, 6, 7)
 | 10 | 0, 1 | **Z** |
 | 11 | 1, 1 | **1** |
 
-From: §6, Rule 2, and Topic 10 §4
+From: §6, Rule 37, and Topic 10 §4
 
 </details>
 
@@ -155,7 +154,7 @@ Wire A, B, C to S₂, S₁, S₀.
 
 **D₀ = D₃ = D₅ = 1.** All others (D₁, D₂, D₄, D₆, D₇) = **0**.
 
-From: §5, Rule 1
+From: §5, Rule 36
 
 </details>
 
@@ -211,6 +210,6 @@ So on that data input, f is a function of v alone.
 
 A function of one variable has only four possibilities: always 0, always 1, equal to v, or equal to v'.
 
-From: §6, Rule 2 "Why it works"
+From: §6, Rule 37 "Why it works"
 
 </details>

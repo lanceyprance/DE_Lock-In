@@ -1,6 +1,6 @@
-# Topic 9 — Don't cares, NAND-NAND and NOR-NOR
+# Topic 9: Don't cares, NAND-NAND and NOR-NOR
 
-Slide exercises: Lecture 6, slides 14 and 15
+Slide exercises: Lecture 6, slides 14 and 15 · Past finals: 2023 Q1d
 
 Slides: Lecture 6, all
 
@@ -22,6 +22,28 @@ Then click to check.
 
 ---
 
+## 🎯 In the final
+
+**2023 Q1d (40% of Q1, the biggest part):** simplify, then "implement it with two-level NAND gate circuits. NOT gates can be used if needed."
+
+Don't cares (x) also come back in state machine design (Topic 15).
+
+---
+
+## ⭐ Learn by heart from this topic
+
+There is **no formula sheet** in this exam. So learn all of this.
+
+- Rule 24: use an x as a 1 only if it makes a group bigger.
+- Rule 25: CMOS: NAND and NOR = 2n transistors. AND and OR = 2n + 2. NOT = 2.
+- Rule 26: NAND-NAND: start from the minimum SOP. Swap every gate for NAND.
+- Rule 27: NOR-NOR: start from the minimum POS. Swap every gate for NOR.
+- A single letter going straight into the output gate must be **complemented**.
+
+**Memory hook:** "NAND loves SOP. NOR loves POS." 
+
+---
+
 ## 1. Don't care terms
 
 ![Don't cares](../img/09/s3.png)
@@ -34,7 +56,7 @@ We mark that cell with an **x**. It's a wild card.
 
 ---
 
-### 📐 Rule 1: using don't cares
+### 📐 Rule 24: using don't cares
 
 **Treat an x as a 1** if it lets you make a **bigger** group.
 
@@ -124,7 +146,7 @@ They are **faster** and use **fewer transistors**.
 
 ---
 
-### 📐 Rule 2: CMOS transistor counts
+### 📐 Rule 25: CMOS transistor counts
 
 | Gate (n inputs) | Transistors |
 |---|---|
@@ -219,7 +241,7 @@ But the output NAND still inverts it.
 
 ---
 
-### 📐 Rule 3: NAND-NAND
+### 📐 Rule 26: NAND-NAND
 
 **Step 1.** Find the **minimum SOP** (K-map).
 
@@ -242,7 +264,7 @@ But the output NAND still inverts it.
 
 ---
 
-### 📐 Rule 4: NOR-NOR
+### 📐 Rule 27: NOR-NOR
 
 **Step 1.** Find the **minimum POS** (K-map, grouping 0s).
 
@@ -366,6 +388,55 @@ Output: NOR(A', gate 1)
 <br>
 
 **Check:** (A' + (B + C' + D')')' = A · (B + C' + D') ✓
+
+---
+
+## 11. Worked example: Final 2023 Q1 (the whole question)
+
+![Fig. 1, Final 2023](../img/papers/2023-fig1.png)
+
+**(a)** Gate by gate (Topic 6 §6):
+
+$$F = X'Y' + ((X + Y)Z')'$$
+
+<br>
+
+**(b)** Truth table and K-map (Topic 8 §11):
+
+| X \ YZ | 00 | 01 | 11 | 10 |
+|---|---|---|---|---|
+| **0** | 1 | 1 | 1 | 0 |
+| **1** | 0 | 1 | 1 | 0 |
+
+<br>
+
+**(c)** F = Σm(0, 1, 3, 5, 7) = ΠM(2, 4, 6) (Topic 7 §9).
+
+<br>
+
+**(d) Simplify, then two-level NAND.**
+
+From the map: **F = X'Y' + Z**.
+
+AND-OR: one AND (X'Y') and one OR (with Z).
+
+Swap both gates for NAND (Rule 26):
+
+Gate 1: NAND(X', Y') = (X'Y')'
+
+Z is a single letter at the output gate → feed in **Z'**.
+
+Output: NAND(gate 1, Z')
+
+NOT gates make X', Y' and Z' (the question allows them).
+
+<br>
+
+**Check:** ((X'Y')' · Z')' = X'Y' + Z ✓
+
+<br>
+
+**Parts list:** 2 NAND gates + 3 NOT gates.
 
 ---
 

@@ -1,4 +1,4 @@
-# Topic 10 — End-of-topic test
+# Topic 10: End-of-topic test
 
 Try each question first.
 Then click to check.
@@ -7,8 +7,7 @@ Each answer says which notes section (§) it comes from.
 
 ---
 
-## Part A: Slide examples
-
+## Part A: Slide exercises and past-final questions
 ### S1 (Lecture 7/8, slides 12 to 13)
 
 Write the full adder truth table. Find C and S as Σm, and simplify C with a K-map.
@@ -45,7 +44,7 @@ Cells 6, 7: XY. Cells 3, 7: YZ. Cells 7, 5: XZ.
 
 S is a checkerboard, so it doesn't simplify: **S = X ⊕ Y ⊕ Z**
 
-From: §4, Equation 2
+From: §4, Equation 30
 
 </details>
 
@@ -92,7 +91,7 @@ From: §10
 
 ---
 
-## Part B: Midterm-style questions
+## Part B: Exam-style questions
 
 ---
 
@@ -133,7 +132,7 @@ What is the generate signal Gᵢ in a carry lookahead adder?
 
 (A is Pᵢ. D is Sᵢ.)
 
-From: §7, Equation 3
+From: §7, Equation 31
 
 </details>
 
@@ -187,7 +186,7 @@ Same carries as the ripple adder in M3 ✓
 
 Sums: Sᵢ = Pᵢ ⊕ Cᵢ → S₀ = 1, S₁ = 0, S₂ = 0, S₃ = 0 ✓
 
-From: §7, Equation 3
+From: §7, Equation 31
 
 </details>
 
@@ -209,7 +208,7 @@ Drop the carry: **0101** = 5
 
 Check: 7 − 2 = 5 ✓
 
-From: §9, Equation 4, and Topic 4
+From: §9, Equation 32, and Topic 4
 
 </details>
 
@@ -258,7 +257,7 @@ Use the design procedure to design a half subtractor (X − Y). Give the truth t
 
 **Step 4.** One XOR gate for D. One NOT on X and one AND for B.
 
-From: §1 Rule 1, §9 Equation 4
+From: §1 Rule 28, §9 Equation 32
 
 </details>
 
