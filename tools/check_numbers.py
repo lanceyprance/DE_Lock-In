@@ -230,10 +230,25 @@ check('L23 s15 transition table rows y1y2=00,01,11,10 x=0,1',
       [''.join(f'{t2[(y1, y2, xx)][0]}{t2[(y1, y2, xx)][1]}' for xx in x) for y1, y2 in ((0, 0), (0, 1), (1, 1), (1, 0))],
       ['0001', '1101', '1110', '0010'])
 
+# Part B M3: Y = x1x2' + x2'y
+t3 = {(y, a, b): int((a and not b) or (not b and y)) for y in (0, 1) for a, b in x1x2}
+check('T21 M3 rows', [[t3[(y, a, b)] for a, b in x1x2] for y in (0, 1)], [[0, 0, 0, 1], [1, 0, 0, 1]])
+# slide 17: Y = x1x2' + x1y, z = x1x2y
+t4 = {(y, a, b): int((a and not b) or (a and y)) for y in (0, 1) for a, b in x1x2}
+check('L23 s17 rows', [[t4[(y, a, b)] for a, b in x1x2] for y in (0, 1)], [[0, 0, 0, 1], [0, 0, 1, 1]])
+
 # ------------------------------------------------------------------ Topic 22 slide example
 print('--- Topic 22')
 m = mins_of(lambda a, b, c: int((a and b) or (not b and c)), 3)
 check('Y = x1x2 + x2\'x3 hazard-free', hazard_free_sop(m, 3), ['-01', '1-1', '11-'])
+
+check('T22 M3 A\'B\' + BC hazard-free', hazard_free_sop(mins_of(lambda a, b, c: int((not a and not b) or (b and c)), 3), 3), ['-11', '0-1', '00-'])
+check('T22 M2 AB\' + BC hazard-free', hazard_free_sop(mins_of(lambda a, b, c: int((a and not b) or (b and c)), 3), 3), ['-11', '1-1', '10-'])
+# static-0: hazard-free POS = hazard-free SOP of the complement
+zeros = lambda f, n: [m for m in range(2 ** n) if m not in mins_of(f, n)]
+check('T22 S2 0s', zeros(lambda a, b, c: int((a or not b) and (b or c)), 3), [0, 2, 3, 4])
+check('T22 S2 hazard-free (on the 0s)', hazard_free_sop(zeros(lambda a, b, c: int((a or not b) and (b or c)), 3), 3), ['-00', '0-0', '01-'])
+check('T22 M4 hazard-free (on the 0s)', hazard_free_sop(zeros(lambda a, b, c: int((a or b) and (not a or c)), 3), 3), ['-00', '00-', '1-0'])
 
 # ------------------------------------------------------------------ Mocks: imported from the mock check file
 exec(open(__file__.replace('check_numbers.py', 'check_mocks.py')).read())
