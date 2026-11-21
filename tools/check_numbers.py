@@ -21,8 +21,20 @@ def pos(vars_, ms, dc=()):
     return POSform(vars_, [b(m) for m in ms], [b(m) for m in dc])
 
 
+def _norm(v):
+    """Make sympy strings order-independent: '(a) | (b)' == '(b) | (a)'."""
+    if isinstance(v, str):
+        return tuple(sorted(t.strip().strip('()') for t in v.split(' | ')))
+    if isinstance(v, (list, tuple)):
+        return type(v)(_norm(x) for x in v)
+    if isinstance(v, dict):
+        return {k: _norm(x) for k, x in v.items()}
+    return v
+
+
 def check(label, got, want):
-    print(('ok   ' if got == want else 'FAIL ') + f'{label}: {got}' + ('' if got == want else f'  (want {want})'))
+    ok = _norm(got) == _norm(want)
+    print(('ok   ' if ok else 'FAIL ') + f'{label}: {got}' + ('' if ok else f'  (want {want})'))
 
 
 def jk(q, j, k):
