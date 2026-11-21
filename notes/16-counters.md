@@ -128,7 +128,7 @@ If an unused state **didn't** come back (for example, two unused states looping 
 
 **Step 1.** List the count sequence. Each row's next state is the next row.
 
-**Step 2.** Find the flip-flop inputs with the excitation table (Topic 15, Rule 44).
+**Step 2.** Find the flip-flop inputs with the excitation table (Topic 15 Rule 44).
 
 **Step 3.** K-map each input. Unused states are **x**.
 

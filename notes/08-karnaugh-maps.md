@@ -455,7 +455,7 @@ Sometimes POS wins (like §8). Sometimes SOP wins.
 
 <br>
 
-**Truth table** (2³ = 8 rows, Rule 15):
+**Truth table** (2³ = 8 rows, Topic 6 Rule 15):
 
 | X | Y | Z | F |
 |---|---|---|---|

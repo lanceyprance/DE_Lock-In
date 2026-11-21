@@ -383,7 +383,7 @@ Give it the inputs and the present state. It tells you the next state.
 **Analysing** a circuit (Topic 14): you know the inputs, you want the next state.
 
 **Not when:**
-**Designing** (Topic 15). Then you know the next state and want the inputs. Use the **excitation table** (Rule 44) instead.
+**Designing** (Topic 15). Then you know the next state and want the inputs. Use the **excitation table** (Topic 15 Rule 44) instead.
 
 ---
 

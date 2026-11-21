@@ -14,7 +14,7 @@ for (const line of t.split('\n')) {
   const k = line.match(/\[([^\]]*(?:Mock|Wrap|Final)[^\]]*)\]\(((mock|papers)\/([a-z0-9-]+)\.md)\)\s*(\(([^)]*)\))?/i);
   if (k && line.startsWith('|')) mocks.push({ title: k[1], file: k[2], id: k[4], paper: k[3] === 'papers' });
 }
-console.log('chapters', CH); console.log('topics', topics.length, 'by ch', [1,2,3,4].map(c => topics.filter(x => x.ch === c).length));
+console.log('chapters', CH); console.log('topics', topics.length, 'by ch', [1,2,3,4,5,6,7,8].map(c => topics.filter(x => x.ch === c).length));
 console.log('mocks', mocks.map(m => m.id + (m.paper ? '(paper)' : '')).join(' '));
 let total = 0, tut = 0; const keys = new Set(); let dup = 0;
 for (const tp of topics) {

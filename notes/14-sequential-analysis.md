@@ -51,7 +51,7 @@ There is **no formula sheet** in this exam. So learn all of this.
 - Rule 41: analysis = input equations → flip-flop input values → next state (characteristic table).
 - Rule 42: n flip-flops → **2ⁿ** states (circles). m inputs → **2ᵐ** arrows out of every circle.
 - Mealy arrows are labelled **input / output**.
-- JK: Q_t+1 = JQ' + K'Q. D: Q_t+1 = D. T: Q_t+1 = T ⊕ Q (Equation 39).
+- JK: Q_t+1 = JQ' + K'Q. D: Q_t+1 = D. T: Q_t+1 = T ⊕ Q (Topic 13 Equation 39).
 
 **Memory hook:** "Equations, inputs, next."
 
@@ -158,7 +158,7 @@ Z only depends on the present state and the input. It's a **Mealy** output.
 
 **Step 2.** Make a table: every present state × every input. Fill in the flip-flop inputs from Step 1.
 
-**Step 3.** Use the **characteristic table** (or Equation 39) to find each next state.
+**Step 3.** Use the **characteristic table** (or Topic 13 Equation 39) to find each next state.
 
 **Then** draw the state diagram from the table.
 
